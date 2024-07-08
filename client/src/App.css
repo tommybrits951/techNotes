@@ -1,0 +1,16 @@
+body {
+    background-image: url("./img/bg.jpg");
+    background-size: 100%;
+    background-color: darkgrey;
+    background-blend-mode:darken;
+    background-repeat: no-repeat;
+}
+.check {
+    margin-left: 10px;
+} 
+.check-div {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    padding: 16px;
+}

@@ -1,0 +1,9 @@
+h1, h2 {
+    text-align: center;
+    color: red;
+    font-size: 4rem;
+    text-decoration: underline;
+}
+p {
+    text-align: center;
+}
