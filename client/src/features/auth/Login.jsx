@@ -27,7 +27,8 @@ export default function Login() {
   async function submit(e) {
     e.preventDefault();
     try {
-      const { accessToken } = await login({ username, password }).unwrap();
+      console.log(username, password)
+      const { accessToken } = await login({username, password} ).unwrap();
       dispatch(setCredentials({ accessToken }));
       setUsername("");
       setPassword("");
@@ -42,7 +43,7 @@ export default function Login() {
       } else {
         setErrMsg(err.data?.message);
       }
-      errRef.current.focus();
+      
     }
   }
   const onUsernameChange = (e) => setUsername(e.target.value)

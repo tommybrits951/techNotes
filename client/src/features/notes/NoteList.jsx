@@ -1,7 +1,7 @@
 import {useGetNotesQuery} from "./notesApiSlice"
 import Note from "./Note"
 export default function NoteList({noteId}) {
-  const {data: notes, isLoading, isSuccess, isError, error} = useGetNotesQuery(undefined, {
+  const {data: notes, isLoading, isSuccess, isError, error} = useGetNotesQuery(notexList, {
     pollingInterval: 15000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true

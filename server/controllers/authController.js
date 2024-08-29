@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const asyncHandler = require("express-async-handler")
 const accessSecret = process.env.ACCESS_TOKEN_SECRET
-const refreshSecret = process.env.REFRESH_tOKEN_SECRET
+const refreshSecret = process.env.REFRESH_TOKEN_SECRET
 
 function buildRefresh(user) {
     const payload = {
@@ -32,8 +32,8 @@ function buildAccess(user) {
 
 
 const login = asyncHandler(async (req, res) => {
-    console.log(process.env.REFRESH_SECRET)
     const {username, password} = req.body;
+    console.log(username, password)
     if (!username || !password) {
         return res.status(400).json({message: "All fields required!"})
     }
@@ -46,6 +46,7 @@ const login = asyncHandler(async (req, res) => {
         return res.status(401).json({message: "Unauthorized!"})
     }
     const refreshToken = buildRefresh(foundUser)
+    
     const accessToken = buildAccess(foundUser)
     res.cookie("jwt", refreshToken, {
         httpOnly: true,
